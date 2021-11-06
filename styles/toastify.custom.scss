@@ -1,0 +1,24 @@
+@use "sass:color";
+@import "styles/variables";
+
+:root {
+  --toastify-color-info: #{$color-darker-blue};
+  --toastify-color-success: #{$color-green};
+  --toastify-color-warning: #{$color-yellow};
+  --toastify-color-error: #{$color-red};
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+}
+
+/** Classes for the displayed toast **/
+.Toastify__toast {
+  font-family: $font-sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.01rem;
+  line-height: 1.7;
+  padding: 12px;
+}

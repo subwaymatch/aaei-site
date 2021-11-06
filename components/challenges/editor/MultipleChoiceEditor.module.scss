@@ -1,0 +1,116 @@
+@use "sass:color";
+@import "styles/variables";
+@import "./edit-page.common";
+
+.optionsEditor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .optionItemsWrapper {
+  }
+
+  .addOptionButton {
+    text-align: center;
+    color: $color-gray;
+    border: 2px dashed $color-border-gray;
+    border-radius: 128px;
+    margin: 1rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $color-medium-gray;
+      background-color: $color-border-gray;
+      border-style: solid;
+    }
+  }
+}
+
+.optionItemEditor {
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem 0 0;
+  border-bottom: 1px solid $color-border-gray;
+
+  .stackedTextareasWrapper {
+    flex: 1;
+    border-left: 1px solid $color-border-gray;
+
+    .textareaWrapper {
+      position: relative;
+
+      .textareaLabel {
+        position: absolute;
+        left: 0.5rem;
+        top: 0.5rem;
+        z-index: 5;
+        font-size: 0.73rem;
+        font-weight: 500;
+        line-height: 1.2;
+        padding: 0.15rem 0.3rem;
+        border-radius: 0.25rem;
+        letter-spacing: 0.01rem;
+        pointer-events: none;
+        color: white;
+
+        &.textMarkdownLabel {
+          background-color: $color-dark-gray;
+        }
+
+        &.explanationMarkdownLabel {
+          background-color: color.adjust(
+            $color-green,
+            $lightness: -8%,
+            $saturation: -10%
+          );
+        }
+      }
+
+      .textarea {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 2rem 0.5rem 0.5rem 0.5rem;
+        font-family: $font-monospace;
+        font-size: 1rem;
+        line-height: 1.45;
+        letter-spacing: -0.02rem;
+        border: none;
+        outline: none;
+        position: relative;
+        color: color.adjust($color-medium-gray, $lightness: 0%);
+
+        &.text {
+          &:focus,
+          &:active {
+            color: $color-black;
+          }
+        }
+
+        &.explanation {
+          background-color: #fbfbfb;
+          border-top: 1px dashed $color-border-gray;
+
+          &:focus,
+          &:active {
+            color: color.adjust(
+              $color-orange,
+              $lightness: -50%,
+              $saturation: -24%
+            );
+            border-color: $color-gray;
+          }
+        }
+      }
+    }
+  }
+
+  .deleteButton {
+    cursor: pointer;
+    padding: 0.2rem;
+  }
+}

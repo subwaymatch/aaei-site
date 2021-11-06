@@ -1,0 +1,55 @@
+@use "sass:color";
+@import "styles/variables";
+@import "styles/mixins";
+
+.noteItem {
+  display: block;
+  margin-top: 3rem;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+
+  h3 {
+    color: $color-dark-gray;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: -0.02rem;
+    margin-top: 0.5rem;
+  }
+
+  .dateWrapper {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+    color: $color-gray;
+
+    .date {
+      .dateDivider {
+        display: inline-block;
+        padding: 0 0.2rem;
+      }
+    }
+
+    .divider {
+      display: inline-block;
+      margin: 0 0.3rem;
+    }
+
+    .weekday {
+      letter-spacing: 0;
+    }
+  }
+
+  &:hover {
+    transform: translateY(2px);
+
+    h3 {
+      color: $color-black;
+    }
+
+    .dateWrapper {
+      color: color.adjust($color-gray, $lightness: -12%);
+    }
+  }
+}

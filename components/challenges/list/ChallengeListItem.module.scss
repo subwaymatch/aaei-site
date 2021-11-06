@@ -1,0 +1,73 @@
+@import "styles/variables";
+
+.listItem {
+  border-top: 1px solid $color-border-gray;
+  padding: 0.25rem 0;
+
+  .cid {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+
+    span.label {
+      font-family: $font-monospace;
+      color: $color-blue;
+    }
+
+    .reactIcon {
+      color: $color-gray;
+      display: none;
+      font-size: 1.05rem;
+      margin-left: 0.5rem;
+    }
+
+    &:hover {
+      .reactIcon {
+        display: inline-block;
+      }
+    }
+  }
+
+  .title {
+    color: $color-text-gray;
+    font-size: 1.05em;
+    display: block;
+    padding: 1rem 0;
+    transition: color 200ms linear;
+
+    &:hover {
+      color: $color-medium-gray;
+      transform: translateY(1px);
+    }
+  }
+
+  .actions {
+    position: relative;
+    left: -0.5rem;
+
+    .iconButton {
+      display: inline-block;
+      padding: 0.5rem;
+      transition: color 200ms linear;
+      color: $color-medium-gray;
+
+      &:hover {
+        color: $color-pink;
+        transform: translateY(1px);
+      }
+    }
+
+    .delete {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .date {
+    color: #999;
+  }
+
+  :global(.label) {
+    font-size: 0.95rem;
+  }
+}

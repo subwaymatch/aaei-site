@@ -1,0 +1,60 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.assignmentItem {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  border-top: 1px solid $color-border-gray;
+  padding: 1.5rem 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-top-color: $color-gray;
+    transform: translateX(2px);
+  }
+
+  .name {
+    display: block;
+    color: $color-light-gray;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .metaInfo {
+    :global(.label) {
+      margin-left: 0.75rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .status {
+    font-size: 0.9em;
+  }
+
+  &.complete {
+    .name,
+    .status {
+      color: #bdbdbd;
+    }
+  }
+  &.available {
+    .name {
+      color: $color-medium-gray;
+
+      &:hover {
+        color: $color-dark-gray;
+      }
+    }
+  }
+  &.unavailable {
+    .status {
+      color: $color-light-gray;
+    }
+  }
+}

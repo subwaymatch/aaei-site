@@ -1,0 +1,90 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.authPage {
+  padding-bottom: 6rem;
+
+  .formTitle {
+    color: var(--arches-blue-700);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 600;
+    border-top: 1px solid var(--arches-blue-700);
+    border-bottom: 1px solid var(--arches-blue-300);
+    padding-top: 0.75rem;
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+      font-size: 1.4rem;
+      padding-bottom: 2.4rem;
+    }
+  }
+
+  .netIdLabel {
+    color: var(--arches-blue-700);
+  }
+
+  .netIdInput,
+  .emailFormat {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    font-weight: 300;
+    padding: 1rem 0;
+
+    @include media-breakpoint-down(sm) {
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-only(xs) {
+      font-weight: normal;
+      font-size: 1.25rem;
+    }
+  }
+
+  .netIdInput {
+    display: block;
+    width: 100%;
+    border: none;
+    color: var(--arches-blue-800);
+    border-bottom: 1px solid var(--arches-blue-700);
+    outline: none;
+
+    &::placeholder {
+      color: var(--arches-blue-300);
+    }
+  }
+
+  .emailFormat {
+    color: var(--arches-blue-300);
+    border-bottom: 1px solid var(--arches-blue-300);
+    padding-left: 0.5rem;
+  }
+
+  .submitControls {
+    margin-top: 4rem;
+
+    :global(.button) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p.note {
+      color: var(--arches-blue-500);
+      letter-spacing: 0rem;
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 1rem;
+      }
+
+      @include media-breakpoint-only(xs) {
+        font-size: 1.1rem;
+        letter-spacing: -0.02rem;
+      }
+    }
+  }
+}

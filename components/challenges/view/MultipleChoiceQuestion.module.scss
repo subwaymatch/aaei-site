@@ -1,0 +1,66 @@
+@use "sass:color";
+@import "styles/variables";
+@import "styles/mixins";
+
+.questionWrapper {
+  font-size: 1.1rem;
+  border-top: 1px solid $color-border-gray;
+  border-bottom: 1px solid $color-border-gray;
+
+  @include media-breakpoint-down(xl) {
+    font-size: 1.05rem;
+    letter-spacing: -0.01rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    font-size: 1.05rem;
+    letter-spacing: -0.01rem;
+    border-bottom: none;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .equalHeightCol {
+      flex: 1;
+    }
+  }
+
+  .instructionsWrapper,
+  .optionsAndControlsWrapper {
+    height: 100%;
+  }
+
+  .instructionsWrapper {
+    .inner {
+      padding: 1rem 2rem 2rem 0;
+
+      @include media-breakpoint-down(md) {
+        padding: 1.5rem 0 2rem 0;
+      }
+    }
+  }
+
+  .optionsAndControlsWrapper {
+    padding: 1rem 1rem 2rem 1.5rem;
+    border-left: 1px solid $color-border-gray;
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-down(lg) {
+      padding: 1rem 0 2rem 0;
+      border: none;
+      border-top: 1px solid $color-border-gray;
+    }
+  }
+
+  .optionsWrapper {
+    flex-grow: 1;
+  }
+
+  .controls {
+    margin-top: 3rem;
+  }
+}

@@ -1,0 +1,9 @@
+.codeEditorWrapper {
+  height: 100%;
+
+  .codeEditor {
+    :global(.line-numbers) {
+      color: #ddd;
+    }
+  }
+}

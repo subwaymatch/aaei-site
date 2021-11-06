@@ -1,0 +1,34 @@
+@import "styles/variables";
+
+.challengeEditPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .boxesRow {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    border-top: 1px solid $color-dark-gray;
+
+    &:first-of-type {
+      border-top: none;
+    }
+
+    .inner {
+      padding: 0.5rem 1rem;
+    }
+
+    textarea.fullTextarea {
+      width: 100%;
+      height: 100%;
+      padding: 0.8rem 1rem;
+      font-family: $font-monospace;
+      font-size: 1.2rem;
+      line-height: 1.45;
+      letter-spacing: -0.02rem;
+      outline: none;
+      border: none;
+    }
+  }
+}

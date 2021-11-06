@@ -1,0 +1,456 @@
+@use "sass:color";
+@import "./variables";
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@import url("https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css");
+@import "~bootstrap/scss/bootstrap-grid";
+@import url("https://rsms.me/inter/inter.css");
+
+html {
+  font-family: $font-sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: $font-sans-serif;
+  }
+}
+
+body {
+  color: $color-text-gray;
+  font-size: 1.13rem;
+  line-height: 1.8;
+  letter-spacing: -0.025rem;
+
+  @include media-breakpoint-down(xl) {
+    font-size: 1.1rem;
+    letter-spacing: -0.015rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.05rem;
+    letter-spacing: -0.01rem;
+  }
+}
+
+.page {
+  padding-bottom: 10rem;
+}
+
+a {
+  color: $color-text-gray;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-dark-gray;
+  }
+}
+
+h1.pageTitle {
+  color: $color-dark-gray;
+  font-size: 7rem;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.15rem;
+  padding: 2rem 0 3rem 0;
+  display: flex;
+  align-items: center;
+
+  @include media-breakpoint-down(xxl) {
+    font-size: 6rem;
+  }
+
+  @include media-breakpoint-down(xl) {
+    font-size: 5.5rem;
+    padding: 1.75rem 0 2.5rem 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 4rem;
+    padding: 1.5rem 0 2.25rem 0;
+    letter-spacing: -0.1rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 3rem;
+    letter-spacing: -0.07rem;
+  }
+}
+
+p,
+ul,
+ol {
+  a {
+    color: color.adjust($color-medium-gray, $lightness: 0%);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 1px;
+    text-decoration-color: $color-gray;
+    transition: all 0.2s ease;
+    display: inline-block;
+
+    &:hover {
+      color: $color-dark-gray;
+      transform: translateY(1px);
+    }
+  }
+}
+
+h1.pageTitleBorders {
+  font-size: 2.7rem;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.1rem;
+  padding: 1rem 0 4rem 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid $color-border-gray;
+
+  @include media-breakpoint-down(md) {
+    font-size: 2.5rem;
+    padding: 1rem 0 3rem 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: 2rem;
+    letter-spacing: -0.4rem;
+    padding: 1rem 0 2rem 0;
+  }
+}
+
+h2.sectionTitle {
+  color: $color-dark-gray;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  border-top: 1px solid $color-dark-gray;
+  padding-top: 0.75rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+
+  &.blackBottomBorder {
+    border-bottom: 1px solid black;
+  }
+
+  &.grayBottomBorder {
+    border-bottom: 1px solid $color-border-gray;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 1.4rem;
+    padding-bottom: 2.4rem;
+  }
+}
+
+ul {
+  list-style-type: disc;
+  list-style-position: inside;
+
+  li ul {
+    list-style-type: circle;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+
+  li::marker {
+    color: color.adjust($color-gray, $lightness: 4%);
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+@for $i from 1 through 9 {
+  .color-arches-blue-#{$i * 100} {
+    color: var(--arches-blue-#{$i * 100});
+  }
+}
+
+.color-green {
+  color: color.adjust($color-green, $lightness: -16%);
+}
+.color-purple {
+  color: $color-purple;
+}
+.color-yellow {
+  color: $color-yellow;
+}
+.color-pink {
+  color: $color-pink;
+}
+.color-red {
+  color: $color-red;
+}
+.color-blue {
+  color: var(--arches-blue-700);
+}
+
+.color-orange {
+  color: $color-orange;
+}
+.color-gray {
+  color: $color-gray;
+}
+.color-medium-gray {
+  color: $color-medium-gray;
+}
+.color-dark-gray {
+  color: $color-dark-gray;
+}
+
+.w-300,
+.weight-300 {
+  font-weight: 300;
+}
+.w-400,
+.weight-400 {
+  font-weight: 400;
+}
+.w-500,
+.weight-500 {
+  font-weight: 500;
+}
+.w-600,
+.weight-600 {
+  font-weight: 600;
+}
+.w-700,
+.weight-700 {
+  font-weight: 700;
+}
+.w-800,
+.weight-800 {
+  font-weight: 800;
+}
+.w-900,
+.weight-900 {
+  font-weight: 900;
+}
+
+.accent,
+.label,
+.button {
+  background-color: $color-lighter-gray;
+
+  &.green {
+    background-color: $color-green;
+  }
+
+  &.purple {
+    background-color: $color-purple;
+  }
+
+  &.yellow {
+    background-color: $color-yellow;
+  }
+
+  &.pink {
+    background-color: $color-pink;
+  }
+
+  &.blue {
+    color: white;
+    background-color: $color-arches-blue-700;
+  }
+
+  &.orange {
+    background-color: $color-orange;
+  }
+
+  &.gray {
+    background-color: $color-light-gray;
+  }
+
+  &.lightGray {
+    background-color: $color-lighter-gray;
+  }
+
+  &.disabled {
+    color: var(--arches-blue-400);
+    background-color: var(--arches-blue-200);
+  }
+
+  &.black {
+    color: white;
+    background-color: black;
+  }
+}
+
+.accent {
+  margin-left: 0.625rem;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: black;
+  border-radius: 1rem;
+}
+
+.label {
+  color: $color-black;
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: -0.01rem;
+  line-height: 1.2;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4rem;
+  white-space: nowrap;
+
+  &.small {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+  }
+
+  &.whiteText {
+    color: white;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  color: black;
+  background-color: $color-lighter-gray;
+  line-height: 1.5;
+  padding: 1.25rem 1.75rem;
+  border: none;
+  border-radius: 0.25rem;
+
+  &:hover {
+    box-shadow: 0 0 0.75rem rgba(black, 0.07);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+input {
+  font-family: $font-sans-serif;
+}
+
+::placeholder {
+  color: $color-light-gray;
+}
+
+:not(pre) > code,
+kbd {
+  font-family: $font-monospace;
+  padding: 0.05em 0.2em;
+  color: $color-darker-blue;
+  background-color: color.adjust(
+    $color-blue,
+    $lightness: 21%,
+    $saturation: 50%
+  );
+  border: 1px solid color.adjust($color-blue, $lightness: 15%, $saturation: 50%);
+  border-radius: 0.25rem;
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+
+pre {
+  code {
+    white-space: pre;
+  }
+}
+
+kbd {
+  color: black;
+  background-color: color.scale(black, $lightness: 95%);
+  border-color: color.scale(black, $lightness: 80%);
+}
+
+.tippy {
+  font-weight: 400;
+  letter-spacing: 0;
+
+  .tippy-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+.paginationContainer {
+  display: flex;
+  width: 100%;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+ul.pagination {
+  list-style: none;
+  display: inline-block;
+  font-size: 1.1rem;
+
+  li {
+    display: inline-block;
+    font-weight: 500;
+
+    a {
+      color: $color-medium-gray;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-text-gray;
+        background: #f9f9f9;
+      }
+    }
+
+    &.disabled a {
+      color: $color-light-gray;
+      cursor: not-allowed;
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    &.previous {
+      margin-left: 0;
+    }
+
+    &.next {
+      margin-right: 0;
+    }
+
+    &.page {
+      &.active {
+        a {
+          color: color.adjust($color-green, $lightness: -10%);
+          background-color: color.adjust($color-green, $lightness: 25%);
+        }
+      }
+    }
+  }
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+// Remark math equations
+.math.math-display {
+  letter-spacing: 0;
+}

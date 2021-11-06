@@ -1,0 +1,57 @@
+@import "styles/variables";
+
+.menuBtn {
+  cursor: pointer;
+  display: block;
+  top: 1rem;
+  right: 1.25rem;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 200px;
+  position: fixed;
+  z-index: 2100;
+
+  .menuIcon {
+    &::before,
+    &::after {
+      background: black;
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      position: absolute;
+      right: 10px;
+      transition: background ease 0.2s, top ease 0.2s 0.2s, transform ease 0.3s;
+    }
+
+    &::before {
+      top: 15px;
+    }
+
+    &::after {
+      top: 23px;
+    }
+  }
+
+  &.open {
+    background: black;
+
+    .menuIcon {
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      &::before,
+      &::after {
+        top: 19px;
+        transition: top ease 0.2s, transform ease 0.2s 0.2s;
+        background-color: white;
+      }
+    }
+  }
+}

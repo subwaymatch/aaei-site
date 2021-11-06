@@ -1,0 +1,54 @@
+@use "sass:color";
+@import "styles/variables";
+@import "styles/mixins";
+
+.instructionTextWrapper {
+  .instructionTextInner {
+    .textMarkdown {
+      margin-top: 0.5rem;
+
+      @include media-breakpoint-up(lg) {
+        font-size: 0.95em;
+        letter-spacing: -0.015rem;
+      }
+
+      p {
+        margin-top: 2rem;
+
+        &:first-child {
+          margin-top: 1rem;
+        }
+      }
+
+      ul,
+      ol {
+        margin-top: 1rem;
+
+        &:first-child {
+          margin-top: 0.75rem;
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $color-dark-gray;
+        font-weight: 600;
+        font-size: 1.06em;
+        letter-spacing: -0.016rem;
+        margin-top: 2rem;
+
+        & + p {
+          margin-top: 0.5rem;
+        }
+      }
+
+      pre {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

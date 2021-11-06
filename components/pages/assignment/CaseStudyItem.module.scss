@@ -1,0 +1,62 @@
+@import "styles/variables";
+
+.caseStudyItem {
+  padding: 1rem 0 3.5rem 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(2px);
+  }
+
+  .metaInfo {
+    margin-top: 2rem;
+
+    :global(.label) {
+      margin-left: 0.75rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .name {
+    font-size: 1.8rem;
+    display: block;
+    color: $color-light-gray;
+    margin-top: 0.5rem;
+  }
+
+  .status {
+    font-size: 1.2rem;
+  }
+
+  &.complete {
+    cursor: pointer;
+
+    .name,
+    .status {
+      color: #bdbdbd;
+    }
+  }
+  &.available {
+    cursor: pointer;
+
+    .name {
+      color: $color-medium-gray;
+    }
+  }
+  &.unavailable {
+    .status {
+      color: $color-light-gray;
+    }
+  }
+
+  &:hover {
+    &.available {
+      .name {
+        color: $color-text-gray;
+      }
+    }
+  }
+}

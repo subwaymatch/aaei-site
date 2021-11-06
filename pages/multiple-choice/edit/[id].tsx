@@ -204,7 +204,7 @@ export default function EditCodingChallengePage() {
   }, [challengeId, user, roles]);
 
   return isLoading ? (
-    <Layout excludeHeader={true} excludeFooter={true}>
+    <Layout excludeHeader={true}>
       <Container>
         <Row>
           <Col>Loading...</Col>
@@ -212,7 +212,7 @@ export default function EditCodingChallengePage() {
       </Container>
     </Layout>
   ) : (
-    <Layout excludeHeader={true} excludeFooter={true}>
+    <Layout excludeHeader={true}>
       <MultipleChoiceEditor
         id={challengeId}
         questionData={questionData}

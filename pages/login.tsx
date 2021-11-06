@@ -18,7 +18,7 @@ export default function LoginPage() {
 
   return (
     <Layout excludeHeader={true}>
-      <main style={{ paddingTop: "3rem" }}>
+      <main style={{ paddingTop: "2rem" }}>
         <Container>
           <Row>
             <Col>

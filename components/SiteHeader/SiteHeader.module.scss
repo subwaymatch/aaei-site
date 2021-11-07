@@ -20,10 +20,20 @@
     color: $color-gray;
     font-size: 1.25rem;
     line-height: 1.2;
-    font-weight: 600;
     padding: 0.5rem 0;
     letter-spacing: -0.01rem;
     transition: all 0.2s ease;
+    align-items: flex-start;
+
+    .label {
+      display: flex;
+      align-items: center;
+
+      .reactIcon {
+        font-size: 0.8em;
+        margin-left: 0.4rem;
+      }
+    }
 
     .iconWrapper {
       display: inline-flex;
@@ -89,15 +99,15 @@
 
   .signInButton,
   .signOutButton {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     font-size: 1rem;
     letter-spacing: -0.01rem;
     line-height: 1.2;
-    background-color: #111;
-    color: white;
+    color: var(--arches-blue-500);
+    background-color: var(--arches-blue-200);
     padding: 0.75rem 1.2rem;
-    border-radius: 0.25rem;
+    border-radius: 10rem;
     cursor: pointer;
     user-select: none;
     transition: all 0.2s ease;
@@ -118,7 +128,6 @@
     }
 
     &:hover {
-      box-shadow: 0 0 1rem rgba(black, 0.2);
       transform: translateY(2px);
     }
   }
@@ -143,22 +152,32 @@
       display: flex;
       justify-content: space-between;
       font-size: 1rem;
-      color: $color-medium-gray;
+      color: var(--arches-blue-600);
       letter-spacing: -0.01rem;
       padding: 0.65rem 0;
 
+      .label {
+        display: flex;
+        align-items: center;
+
+        .reactIcon {
+          font-size: 0.8em;
+          margin-left: 0.4rem;
+        }
+      }
+
       .iconWrapper {
-        color: $color-gray;
+        color: var(--arches-blue-500);
         background: transparent;
         width: auto;
         height: auto;
       }
 
       &:hover {
-        color: $color-black;
+        color: var(--arches-blue-800);
 
         .iconWrapper {
-          color: $color-black;
+          color: var(--arches-blue-700);
         }
       }
     }
@@ -169,8 +188,9 @@
     .signInButton,
     .signOutButton {
       font-size: 1.1rem;
-      display: block;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
     }
   }

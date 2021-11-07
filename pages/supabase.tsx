@@ -17,7 +17,7 @@ export default function LoginPage() {
   }, [user]);
 
   return (
-    <Layout>
+    <Layout excludeHeader>
       <section style={{ marginBottom: "8rem" }}>
         <Container>
           <Row>

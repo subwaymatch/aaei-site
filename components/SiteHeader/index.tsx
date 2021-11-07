@@ -1,5 +1,4 @@
 import React, { useState, useEffect, forwardRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./SiteHeader.module.scss";
@@ -17,29 +16,23 @@ import { desktop } from "constants/media-query-strings";
 import Tippy from "@tippyjs/react";
 import useSupabaseAuth from "hooks/useSupabaseAuth";
 import { supabaseClient } from "lib/supabase/supabaseClient";
+import { VscLinkExternal } from "react-icons/vsc";
 
 const menuItems = [
   {
-    href: "/syllabus",
-    label: "Syllabus",
-    iconChild: <BiNote className={styles.reactIcon} />,
-    isActive: (asPath: string) => asPath.startsWith("/syllabus"),
-  },
-  {
-    href: "/schedule",
-    label: "Schedule",
-    iconChild: <FiCalendar className={styles.reactIcon} />,
-    isActive: (asPath: string) => asPath.startsWith("/schedule"),
-  },
-  {
-    href: "/notes",
-    label: "Notes",
+    href: "/",
+    label: "Modules",
     iconChild: <RiBook3Line className={styles.reactIcon} />,
-    isActive: (asPath: string) => asPath.startsWith("/notes"),
+    isActive: (asPath: string) => asPath.startsWith("/modules"),
   },
   {
     href: "/assignments",
-    label: "Assignments",
+    label: (
+      <>
+        <span>Canvas</span>
+        <VscLinkExternal className={styles.reactIcon} />
+      </>
+    ),
     iconChild: <FiHexagon className={styles.reactIcon} />,
     isActive: (asPath: string) => asPath.startsWith("/assignments"),
   },
@@ -114,7 +107,7 @@ const HeaderDesktopMenu = () => {
                   : false,
               })}
             >
-              <span>{item.label}</span>
+              <span className={styles.label}>{item.label}</span>
             </a>
           </Link>
         </Col>
@@ -129,7 +122,7 @@ const HeaderMobileMenu = () => (
       <Col xs={12} key={item.href}>
         <Link href={item.href}>
           <a className={styles.menuLink}>
-            <span>{item.label}</span>
+            <span className={styles.label}>{item.label}</span>
             {item.iconChild && (
               <span className={styles.iconWrapper}>{item.iconChild}</span>
             )}
@@ -170,11 +163,17 @@ export default function SiteHeader() {
       <header className={styles.header}>
         <Container>
           <Row className="align-items-center">
-            <Col md={8} className="d-none d-md-block">
+            <Col md={4} className="d-none d-md-block">
               <HeaderDesktopMenu />
             </Col>
 
-            <Col md={2} className="d-none d-md-block">
+            <Col
+              md={{
+                span: 2,
+                offset: 6,
+              }}
+              className="d-none d-md-block"
+            >
               <UserMenu />
             </Col>
 

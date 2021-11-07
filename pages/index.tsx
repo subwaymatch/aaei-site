@@ -1,20 +1,10 @@
 import Layout from "components/Layout";
-import useSupabaseAuth from "hooks/useSupabaseAuth";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "styles/pages/index.module.scss";
+import { GetServerSideProps } from "next";
+import { getProtectedPageServerSideProps } from "utils/auth";
 
-export default function MainPage() {
-  const { user } = useSupabaseAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  }, [user]);
-
+export default function MainPage({ user }) {
   return (
     <Layout>
       <main className={styles.mainPage}>
@@ -31,3 +21,7 @@ export default function MainPage() {
     </Layout>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  return getProtectedPageServerSideProps(req);
+};

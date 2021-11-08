@@ -1,19 +1,24 @@
+@import "styles/variables";
+@import "styles/mixins";
+
 .sectionTitle {
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
-  border-top: 1px solid black;
+  color: var(--arches-blue-700);
+  border-top: 1px solid var(--arches-blue-700);
   padding-top: 0.75rem;
   padding-bottom: 3rem;
   display: flex;
   align-items: center;
 
-  &.blackBottomBorder {
-    border-bottom: 1px solid black;
+  h2 {
+    display: flex;
+    align-items: center;
   }
 
-  &.grayBottomBorder {
-    border-bottom: 1px solid $color-border-gray;
+  &.bottomBorder {
+    border-bottom: 1px solid var(--arches-blue-500);
   }
 
   @include media-breakpoint-down(md) {

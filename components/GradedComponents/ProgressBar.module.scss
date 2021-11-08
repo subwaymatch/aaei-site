@@ -1,0 +1,38 @@
+.progressBar {
+  height: 14px;
+
+  .outerBox,
+  .progressBox {
+    height: 100%;
+  }
+
+  &.notStarted {
+    .outerBox {
+      border: 1px solid var(--arches-blue-400);
+    }
+
+    .progressBox {
+      display: none;
+    }
+  }
+
+  &.inProgress {
+    .outerBox {
+      background-color: var(--arches-blue-300);
+    }
+
+    .progressBox {
+      background-color: var(--arches-blue-500);
+    }
+  }
+
+  &.complete {
+    .outerBox {
+      background-color: var(--arches-blue-700);
+    }
+
+    .progressBox {
+      display: none;
+    }
+  }
+}

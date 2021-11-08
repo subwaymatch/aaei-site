@@ -4,13 +4,13 @@ import styles from "./SectionTitle.module.scss";
 
 interface ISectionTitleProps {
   children: React.ReactNode;
-  grayBottomBorder?: boolean;
+  bottomBorder?: boolean;
   className?: string;
 }
 
 export default function SectionTitle({
   children,
-  grayBottomBorder,
+  bottomBorder,
   className,
 }: ISectionTitleProps) {
   return (
@@ -18,7 +18,7 @@ export default function SectionTitle({
       <Col>
         <div
           className={clsx(styles.sectionTitle, {
-            grayBottomBorder,
+            [styles.bottomBorder]: !!bottomBorder,
             [className]: !!className,
           })}
         >

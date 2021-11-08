@@ -1,8 +1,12 @@
-import { Container, Row, Col } from "react-bootstrap";
 import styles from "./SiteTitle.module.scss";
+import clsx from "clsx";
 
-const SiteTitle = () => (
-  <h1 className={styles.siteTitle}>
+const SiteTitle = ({ className }) => (
+  <h1
+    className={clsx(styles.siteTitle, {
+      [className]: !!className,
+    })}
+  >
     <span className="color-arches-blue-300">Academy for Accountancy</span>
     <br />
     <span className="color-arches-blue-300">Excellence and Innovation</span>

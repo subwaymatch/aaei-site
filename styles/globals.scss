@@ -172,7 +172,7 @@ strong {
 }
 
 .color-green {
-  color: color.adjust($color-green, $lightness: -16%);
+  color: color.adjust($color-green, $lightness: -8%);
 }
 .color-purple {
   color: $color-purple;
@@ -346,13 +346,18 @@ input {
 kbd {
   font-family: $font-monospace;
   padding: 0.05em 0.2em;
-  color: $color-darker-blue;
+  color: color.adjust($color-blue, $lightness: 6%, $saturation: 50%);
   background-color: color.adjust(
     $color-blue,
-    $lightness: 21%,
+    $lightness: 52%,
     $saturation: 50%
   );
-  border: 1px solid color.adjust($color-blue, $lightness: 15%, $saturation: 50%);
+  color: color.adjust($color-orange, $lightness: -8%, $saturation: 20%);
+  background-color: color.adjust(
+    $color-orange,
+    $lightness: 26%,
+    $saturation: 50%
+  );
   border-radius: 0.25rem;
   font-size: 0.95em;
   white-space: nowrap;

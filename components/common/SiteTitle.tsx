@@ -1,7 +1,11 @@
 import styles from "./SiteTitle.module.scss";
 import clsx from "clsx";
 
-const SiteTitle = ({ className }) => (
+interface ISiteTitleProps {
+  className?: string;
+}
+
+const SiteTitle = ({ className }: ISiteTitleProps) => (
   <h1
     className={clsx(styles.siteTitle, {
       [className]: !!className,

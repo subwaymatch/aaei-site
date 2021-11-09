@@ -24,7 +24,7 @@ export default function MainPage({ user }) {
 
                 <GradedComponent
                   label="Introduction to Analytics"
-                  href="/"
+                  href="/notes/intro-to-analytics"
                   progress={100}
                 />
                 <GradedComponent

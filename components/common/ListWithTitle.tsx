@@ -23,7 +23,7 @@ export default function ListWithTitle({
         >
           <Row>
             <Col lg={4}>
-              <h3>{title}</h3>
+              <h3 className={styles.title}>{title}</h3>
             </Col>
 
             <Col lg={8}>

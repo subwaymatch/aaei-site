@@ -5,7 +5,7 @@ import { isMobile } from "react-device-detect";
 import styles from "./Button.module.scss";
 import { ColorTheme } from "types/color-theme";
 
-interface IButtonProps {
+export interface IButtonProps {
   className?: string;
   tooltip?: React.ReactNode;
   label: string;
@@ -35,7 +35,7 @@ export default function Button({
       placement="bottom"
       offset={[0, -4]}
       theme="light"
-      disabled={!tooltip || isMobile}
+      disabled={!tooltip || disabled || isMobile}
     >
       <div
         className={clsx(styles.button, {

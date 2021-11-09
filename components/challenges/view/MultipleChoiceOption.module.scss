@@ -100,16 +100,12 @@
         }
 
         &.isUserIncorrect {
-          border-color: color.adjust(
-            $color-pink,
-            $lightness: 8%,
-            $saturation: 40%
-          );
+          border-color: $color-red;
 
           .optionCheckbox {
-            background: $color-pink;
-            color: $color-white;
-            border-color: $color-pink;
+            background: $color-red;
+            color: white;
+            border-color: $color-red;
           }
         }
       }

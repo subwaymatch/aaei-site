@@ -5,6 +5,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 import ListWithTitle from "components/common/ListWithTitle";
+import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleChoiceQuestion";
 
 export default function VariablesAndDataTypesPage() {
   return (
@@ -13,22 +14,22 @@ export default function VariablesAndDataTypesPage() {
         <Container>
           <Row>
             <Col>
-              <h1 className={styles.noteTitle}>Variables and Data Types</h1>
+              <h1 className={styles.noteTitle}>
+                Introduction to Data Analytics
+              </h1>
             </Col>
           </Row>
 
           <ListWithTitle
             title="Objectives ⟶"
             items={[
+              <>Define data analytics</>,
+              <>Differentiate between business analytics and data science</>,
+              <>Describe the common steps of analytics</>,
               <>
-                What are <span className="color-blue">data types</span>?
+                Discuss how data analytics is relevant in the context of
+                accounting
               </>,
-              <>Understand basic data types.</>,
-              <>
-                Understand what <span className="color-blue">variables</span>{" "}
-                are.
-              </>,
-              <>Why do we need variables?</>,
             ]}
           />
 
@@ -56,44 +57,38 @@ export default function VariablesAndDataTypesPage() {
               }}
             >
               <div className={styles.textBox}>
-                <h3>Python Data Types</h3>
+                <h3>Introduction</h3>
 
-                <span className="label blue">What is it?</span>
+                <span className="label blue">Growth of data</span>
                 <p>
-                  In Python, ALL values have{" "}
-                  <span className="color-blue">data types</span>. We'll go over
-                  a few <strong>built-in</strong> types.
+                  Organizations are accumulating data at an exponentially
+                  growing speed. Just a decade ago, the volume of data
+                  transferred in a year globally was estimated to be 5
+                  zettabytes (that is approximately equivalent to
+                  5,000,000,000,000,000 megabytes). In 2021, the volume of data
+                  transferred globally is estimated to be 79 zettabytes (
+                  <a href="https://www.statista.com/statistics/871513/worldwide-data-created/">
+                    Source: Statista
+                  </a>
+                  ).
+                </p>
+                <p>
+                  But how are any of the 79,000,000,000,000,000 megabytes of
+                  data relevant to you? There are lots of use cases. If you're
+                  looking to open a new retail branch as a business owner, data
+                  can provide insights on whether the new location has a high
+                  chance of success. If you're running a digital advertising
+                  campaign, you can swiftly adjust the campaign based on
+                  real-time feedback. As an auditor, you can perform control
+                  tests using structured transaction data. For every scenario we
+                  just discussed, the end goal remains the same. You want to
+                  make <strong>better decisions</strong> using data.
                 </p>
 
-                <ul>
-                  <li>
-                    <code>Text "Hello World"</code> is a text type (
-                    <code>str</code>).
-                  </li>
-                  <li>
-                    Number <code>475</code> is an integer type (<code>int</code>
-                    ).
-                  </li>
-                  <li>
-                    Number <code>1.99</code> is a float type (<code>float</code>
-                    ).
-                  </li>
-                  <li>
-                    Logical <code>True</code> is a boolean type (
-                    <code>bool</code>).
-                  </li>
-                </ul>
-
-                <span className="label blue">Primitive vs Non-primitive</span>
-                <p>
-                  Data types can be categorized into two types -{" "}
-                  <em className="color-blue">primitive</em> and{" "}
-                  <em className="color-blue">non-primitive</em> types.
-                  Technically speaking, Python only has <em>non-primitive</em>{" "}
-                  types as everything is an object in Python. For the purpose of
-                  this course, you do not have to worry about differentiating
-                  between primitive and non-primitive types.
-                </p>
+                <span className="label blue">
+                  Data Analytics vs Data Science
+                </span>
+                <p></p>
               </div>
             </Col>
           </Row>
@@ -101,24 +96,24 @@ export default function VariablesAndDataTypesPage() {
           <Row className={clsx(styles.boxItems)}>
             <Col>
               <h2 className="sectionTitle">
-                Basic Data Types
-                <span className="accent blue" />
+                Data Analytics vs Data Science
+                <span className="accent orange" />
               </h2>
 
               <Row>
-                <Col md={4}>
+                <Col md={6}>
                   <div className={styles.item}>
-                    <span className="label blue">Text</span>
+                    <span className="label blue">Data Analytics</span>
 
                     <p>
-                      Strings (<code>str</code>) are text types. They are always
-                      enclosed in single or double quotes.
+                      Data analytics typically work with structured data to
+                      solve business problems (source: Coursera).
                     </p>
                   </div>
                 </Col>
-                <Col md={4}>
+                <Col md={6}>
                   <div className={styles.item}>
-                    <span className="label blue">Numbers</span>
+                    <span className="label blue">Data Science</span>
 
                     <p>
                       Integers (<code>int</code>) and decimals (
@@ -128,20 +123,63 @@ export default function VariablesAndDataTypesPage() {
                     </p>
                   </div>
                 </Col>
+              </Row>
+            </Col>
+          </Row>
+
+          <Row className={clsx(styles.boxItems)}>
+            <Col>
+              <h2 className="sectionTitle">
+                Steps in working with data
+                <span className="accent orange" />
+              </h2>
+
+              <Row>
                 <Col md={4}>
                   <div className={styles.item}>
-                    <span className="label blue">Logical Yes/No</span>
+                    <span className="label orange">Collect</span>
 
                     <p>
-                      Booleans (<code>bool</code>) can only have two possible
-                      values - <code>True</code> or <code>False</code>.
-                      Technically speaking, booleans are a subtype of integers.
+                      Finding or gathering data is the starting point of any
+                      analytical processes. Both numerical and categorical data
+                      can be collected. Although there are further
+                      classifications of numerical and categorical variables, we
+                      won't discuss them here.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={4}>
+                  <div className={styles.item}>
+                    <span className="label orange">Analyze</span>
+
+                    <p>
+                      This step involves a repetitive process of loading,
+                      transforming, and digging through the data. Your goal is
+                      to find latent patterns that can be used to derive
+                      insights.
+                    </p>
+                  </div>
+                </Col>
+                <Col md={4}>
+                  <div className={styles.item}>
+                    <span className="label orange">Communicate</span>
+
+                    <p>
+                      This step is often referred as a "storytelling" phase. You
+                      communicate your findings and suggest actions like you're
+                      telling a story. The most common approach is to
+                      graphically represent data.
                     </p>
                   </div>
                 </Col>
               </Row>
             </Col>
           </Row>
+
+          <RecordedMultipleChoiceQuestion
+            questionId={2}
+            className={styles.block}
+          />
 
           <Row>
             <Col

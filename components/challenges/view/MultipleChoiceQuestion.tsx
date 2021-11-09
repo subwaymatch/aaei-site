@@ -2,6 +2,7 @@ import { useState } from "react";
 import _ from "lodash";
 import { Col, Row } from "react-bootstrap";
 import { RiUploadLine } from "react-icons/ri";
+import { IoRefresh, IoCheckmark } from "react-icons/io5";
 import styles from "./MultipleChoiceQuestion.module.scss";
 import { definitions } from "types/database";
 import useSupabaseAuth from "hooks/useSupabaseAuth";
@@ -9,6 +10,7 @@ import InstructionText from "./InstructionText";
 import MultipleChoiceOption from "./MultipleChoiceOption";
 import { QueryStatusEnum } from "types";
 import Button from "components/ui/Button";
+import { IconType } from "react-icons";
 import { ColorTheme } from "types/color-theme";
 import { IMultipleChoiceQuestionWithOptions } from "types/database/multiple-choice";
 
@@ -16,7 +18,7 @@ interface IMultipleChoiceQuestionProps {
   status: QueryStatusEnum;
   questionData: IMultipleChoiceQuestionWithOptions;
   answersData: definitions["multiple_choice_options"][];
-  showResult: boolean;
+  showResult?: boolean;
   onSubmit: (userSelectionIds: number[]) => Promise<void>;
   onReset: () => void;
 }
@@ -33,6 +35,24 @@ export default function MultipleChoiceQuestion({
   const [userSelections, setUserSelections] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const isLoading = status === QueryStatusEnum.LOADING;
+  const isUserCorrect =
+    answersData &&
+    userSelections.length > 0 &&
+    userSelections.every((id) =>
+      answersData
+        .filter((o) => o.is_correct)
+        .map((o) => o.id)
+        .includes(id)
+    );
+
+  console.log("=============");
+  console.log(`isLoading=${isLoading}`);
+  console.log(`isUserCorrect=${isUserCorrect}`);
+  console.log(`isSubmitting=${isSubmitting}`);
+
+  console.log(
+    !showResult && userSelections.length !== questionData?.num_correct_options
+  );
 
   const submit = async () => {
     setIsSubmitting(true);
@@ -56,12 +76,38 @@ export default function MultipleChoiceQuestion({
     }
   };
 
+  const reset = () => {
+    onReset();
+
+    setUserSelections([]);
+  };
+
+  const getSubmitButtonIconComponent = (): IconType | null => {
+    if (isLoading || isSubmitting) {
+      return null;
+    } else if (isUserCorrect) {
+      return IoCheckmark;
+    } else if (showResult && !isUserCorrect) {
+      return IoRefresh;
+    } else {
+      return RiUploadLine;
+    }
+  };
+
   const getSubmitButtonMessage = () => {
     let submitButtonMessage = "";
     let diff = userSelections.length - questionData?.num_correct_options;
 
-    if (showResult) {
-      submitButtonMessage = "Showing result";
+    if (isLoading) {
+      submitButtonMessage = "Loading";
+    } else if (isSubmitting) {
+      submitButtonMessage = "Submitting";
+    } else if (showResult) {
+      if (isUserCorrect) {
+        submitButtonMessage = "Correct";
+      } else {
+        submitButtonMessage = "Try again";
+      }
     } else if (diff > 0) {
       submitButtonMessage = `Unselect ${diff} option${
         diff > 1 ? "s" : ""
@@ -94,7 +140,7 @@ export default function MultipleChoiceQuestion({
         <Col lg={6} className={styles.equalHeightCol}>
           <div className={styles.optionsAndControlsWrapper}>
             <div className={styles.optionsWrapper}>
-              <span className="label small yellow">
+              <span className="label small black">
                 {isLoading
                   ? "Loading Options"
                   : questionData.options
@@ -119,8 +165,7 @@ export default function MultipleChoiceQuestion({
 
             <div className={styles.controls}>
               <Button
-                className={styles.button}
-                onClick={submit}
+                onClick={showResult ? reset : submit}
                 tooltip={
                   userSelections.length !== questionData?.num_correct_options
                     ? `Select ${
@@ -131,17 +176,15 @@ export default function MultipleChoiceQuestion({
                 }
                 disabled={
                   isLoading ||
-                  userSelections.length !== questionData?.num_correct_options ||
+                  (!showResult &&
+                    userSelections.length !==
+                      questionData?.num_correct_options) ||
                   isSubmitting ||
-                  showResult
+                  isUserCorrect
                 }
                 label={getSubmitButtonMessage()}
-                IconComponent={
-                  userSelections.length === questionData?.num_correct_options
-                    ? RiUploadLine
-                    : null
-                }
-                colorTheme={ColorTheme.Green}
+                IconComponent={getSubmitButtonIconComponent()}
+                colorTheme={ColorTheme.Black}
                 fullWidth
               />
             </div>

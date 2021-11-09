@@ -39,7 +39,11 @@ export default function Login() {
     }
   };
 
-  const submit = () => {
+  const submit = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+
     if (isSendingEmail || isEmailSent) {
       return;
     }
@@ -98,9 +102,7 @@ export default function Login() {
                 className={clsx("blue", "button", {
                   disabled: isSendingEmail || isEmailSent,
                 })}
-                onClick={() => {
-                  submit();
-                }}
+                onClick={submit}
               >
                 {isEmailSent ? (
                   <>

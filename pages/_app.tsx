@@ -1,6 +1,5 @@
 import type { AppProps } from "next/app";
 import { ToastContainer } from "react-toastify";
-import "styles/palette.scss";
 import "styles/globals.scss";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";

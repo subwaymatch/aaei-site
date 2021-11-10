@@ -9,7 +9,6 @@ import SectionTitle from "components/common/SectionTitle";
 import { User } from "@supabase/supabase-js";
 import { supabaseClient } from "lib/supabase/supabaseClient";
 import { definitions } from "types/database";
-import { userInfo } from "os";
 
 const _lectureComponents = [
   {
@@ -21,7 +20,7 @@ const _lectureComponents = [
   {
     label: "Introduction to Python",
     href: "/notes/intro-to-python",
-    multipleChoiceIds: [2],
+    multipleChoiceIds: [],
     pythonChallengeIds: [],
   },
 ];
@@ -102,17 +101,57 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     access_token: req.cookies["sb:token"],
   });
 
-  const mcqIds = [2];
+  const { data: mcqData, error: mcqErrors } = await supabaseClient
+    .from<definitions["multiple_choice_attempts"]>("multiple_choice_attempts")
+    .select("question_id")
+    .match({
+      user_id: sspObj.props.user.id,
+      is_success: true,
+    });
 
-  const { data, error } = await supabaseClient
-    .from("multiple_choice_attempts")
-    .select();
+  const { data: pyData, error: pyErrors } = await supabaseClient
+    .from<definitions["coding_challenge_attempts"]>("coding_challenge_attempts")
+    .select("challenge_id")
+    .match({
+      user_id: sspObj.props.user.id,
+      is_success: true,
+    });
 
-  console.log(mcqIds);
-  console.log(data);
+  const mcqSuccessfulIds = Array.from(
+    new Set(mcqData.map((o) => o.question_id))
+  );
+
+  const pySuccessfulIds = Array.from(
+    new Set(pyData.map((o) => o.challenge_id))
+  );
 
   sspObj.props["lectureComponents"] = _lectureComponents.map((o) => {
-    (o as IModuleComponent).progress = 44;
+    let totalCount = 0;
+    let successfulCount = 0;
+
+    o.multipleChoiceIds.forEach((id) => {
+      totalCount++;
+
+      if (mcqSuccessfulIds.includes(id)) {
+        successfulCount++;
+      }
+    });
+
+    o.pythonChallengeIds.forEach((id) => {
+      totalCount++;
+
+      if (pySuccessfulIds.includes(id)) {
+        successfulCount++;
+      }
+    });
+
+    if (totalCount > 0) {
+      (o as IModuleComponent).progress = Math.ceil(
+        (successfulCount / totalCount) * 100
+      );
+    } else {
+      (o as IModuleComponent).progress = 0;
+    }
 
     return o;
   });

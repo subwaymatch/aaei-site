@@ -156,7 +156,11 @@ export default function RecordedPythonChallenge({
                         }
                       )}
                     >
-                      <BsCheckCircle className={styles.reactIcon} />
+                      {attempts.some((o) => o.is_success) ? (
+                        <BsCheckCircle className={styles.reactIcon} />
+                      ) : (
+                        <BsXCircle className={styles.reactIcon} />
+                      )}
                     </span>
                   </Tippy>
                 </div>

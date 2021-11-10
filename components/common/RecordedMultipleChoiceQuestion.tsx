@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import useSupabaseAuth from "hooks/useSupabaseAuth";
 import { Row, Col } from "react-bootstrap";
-import { BsCheckCircle } from "react-icons/bs";
+import { BsCheckCircle, BsXCircle } from "react-icons/bs";
 import { RiEditBoxLine } from "react-icons/ri";
 import Tippy from "@tippyjs/react";
 import clsx from "clsx";
@@ -12,6 +12,7 @@ import useMultipleChoiceAttempts from "hooks/useMultipleChoiceAttempts";
 import MultipleChoiceQuestion from "components/challenges/view/MultipleChoiceQuestion";
 import { QueryStatusEnum } from "types";
 import { definitions } from "types/database";
+import { toast } from "react-toastify";
 
 interface IRecordedMultipleChoiceQuestionProps {
   questionId: number;
@@ -54,6 +55,12 @@ export default function RecordedMultipleChoiceQuestion({
     );
 
     const submitResult = await response.json();
+
+    if (submitResult.isCorrect) {
+      toast.success("Great work! 👊");
+    } else {
+      toast.error("Try again! 🧐");
+    }
 
     setAnswersData(submitResult.answersData);
     setShowResult(true);
@@ -143,7 +150,11 @@ export default function RecordedMultipleChoiceQuestion({
                         }
                       )}
                     >
-                      <BsCheckCircle className={styles.reactIcon} />
+                      {attempts.some((o) => o.is_success) ? (
+                        <BsCheckCircle className={styles.reactIcon} />
+                      ) : (
+                        <BsXCircle className={styles.reactIcon} />
+                      )}
                     </span>
                   </Tippy>
                 </div>

@@ -9,7 +9,7 @@ import CenteredColumn from "components/common/CenteredColumn";
 import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 import { FaWikipediaW } from "react-icons/fa";
 
-export default function VariablesAndDataTypesPage() {
+export default function ConditionalsNotePage() {
   return (
     <Layout>
       <main className={styles.page}>

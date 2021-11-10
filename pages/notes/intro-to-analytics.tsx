@@ -7,7 +7,7 @@ import ListWithTitle from "components/common/ListWithTitle";
 import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleChoiceQuestion";
 import CenteredColumn from "components/common/CenteredColumn";
 
-export default function VariablesAndDataTypesPage() {
+export default function IntroToAnalyticsNotePage() {
   return (
     <Layout>
       <main className={styles.page}>

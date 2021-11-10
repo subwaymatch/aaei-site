@@ -7,7 +7,7 @@ import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleCh
 import CenteredColumn from "components/common/CenteredColumn";
 import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 
-export default function VariablesAndDataTypesPage() {
+export default function IntroToPythonNotePage() {
   return (
     <Layout>
       <main className={styles.page}>

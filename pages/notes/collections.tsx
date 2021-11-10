@@ -8,7 +8,7 @@ import CenteredColumn from "components/common/CenteredColumn";
 import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 import LargeQuote from "components/common/LargeQuote";
 
-export default function VariablesAndDataTypesPage() {
+export default function CollectionsNotePage() {
   return (
     <Layout>
       <main className={styles.page}>

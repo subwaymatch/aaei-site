@@ -47,13 +47,13 @@ const _lectureComponents = [
     label: "Loops",
     href: "/notes/loops",
     multipleChoiceIds: [],
-    pythonChallengeIds: [],
+    pythonChallengeIds: [39, 40, 41, 42, 43],
   },
   {
     label: "Functions",
     href: "/notes/functions",
-    multipleChoiceIds: [],
-    pythonChallengeIds: [],
+    multipleChoiceIds: [28],
+    pythonChallengeIds: [44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56],
   },
 ];
 
@@ -93,6 +93,12 @@ export default function MainPage({ lectureComponents }: IMainPageProps) {
                     progress={o.progress}
                   />
                 ))}
+
+                <GradedComponent
+                  label="Pandas Guided Case Study"
+                  href="https://nbviewer.org/github/subwaymatch/AAEI-notebooks/blob/main/AAEI-rideshare-vehicles-SOLUTION.ipynb"
+                  progress={0}
+                />
               </div>
             </Col>
           </Row>

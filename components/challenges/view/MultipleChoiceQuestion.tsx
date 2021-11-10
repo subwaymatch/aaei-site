@@ -74,7 +74,7 @@ export default function MultipleChoiceQuestion({
   const getSubmitButtonTooltipMessage = (): string | null => {
     if (showResult) {
       if (!isUserCorrect) {
-        return `Nice try, but try again! 🧐`;
+        return `Try again! 🧐`;
       } else {
         return `Great work! 👊`;
       }

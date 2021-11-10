@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import styles from "styles/pages/notes/common.module.scss";
 import Image from "next/image";
 import clsx from "clsx";
-import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 import ListWithTitle from "components/common/ListWithTitle";
 import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleChoiceQuestion";
 
@@ -24,7 +23,8 @@ export default function VariablesAndDataTypesPage() {
             title="Objectives ⟶"
             items={[
               <>Define data analytics</>,
-              <>Differentiate between business analytics and data science</>,
+              <>Understand the four categories of data analytics</>,
+              <>Differentiate between data analytics and data science</>,
               <>Describe the common steps of analytics</>,
               <>
                 Discuss how data analytics is relevant in the context of
@@ -74,24 +74,60 @@ export default function VariablesAndDataTypesPage() {
                 </p>
                 <p>
                   But how are any of the 79,000,000,000,000,000 megabytes of
-                  data relevant to you? There are lots of use cases. If you're
-                  looking to open a new retail branch as a business owner, data
-                  can provide insights on whether the new location has a high
-                  chance of success. If you're running a digital advertising
-                  campaign, you can swiftly adjust the campaign based on
-                  real-time feedback. As an auditor, you can perform control
-                  tests using structured transaction data. For every scenario we
-                  just discussed, the end goal remains the same. You want to
-                  make <strong>better decisions</strong> using data.
+                  data relevant to you? If you're looking to open a new retail
+                  branch as a business owner, data can provide insights on
+                  whether the new location has a high chance of success. If
+                  you're running a digital advertising campaign, you can swiftly
+                  adjust the campaign based on real-time feedback. As an
+                  auditor, you can perform control tests using structured
+                  transaction data. For every scenario we just discussed, the
+                  end goal remains the same. You want to make{" "}
+                  <strong>better decisions</strong> using data.
                 </p>
 
-                <span className="label blue">
-                  Data Analytics vs Data Science
-                </span>
+                <span className="label blue">What is Data Analytics?</span>
+
+                <p>
+                  Data analytics is the science of deriving insights from raw
+                  data. It combines multiple disciplines from statistics,
+                  mathematics, programming, and even art! 🎨 Data analytics is
+                  further categorized into four different types of analytics.
+                </p>
+
+                <ol>
+                  <li>
+                    <strong>Descriptive Analytics</strong>: Analyze historical
+                    and current data to describe what happend (or is happening)
+                  </li>
+                  <li>
+                    <strong>Diagnostic Analytics</strong>: Use data to
+                    understand <em>why</em> something happend in the past
+                  </li>
+                  <li>
+                    <strong>Predictive Analytics</strong>: Predicts what is
+                    likely to happen in the future 🔮
+                  </li>
+                  <li>
+                    <strong>Prescriptive Analytics</strong>: Test potential
+                    outcomes of each decision using advanced algorithms and
+                    recommends the best course of action
+                  </li>
+                </ol>
+
                 <p></p>
               </div>
             </Col>
           </Row>
+
+          <RecordedMultipleChoiceQuestion
+            questionId={3}
+            className={styles.block}
+          />
+
+          <RecordedMultipleChoiceQuestion
+            questionId={4}
+            className={styles.block}
+          />
 
           <Row className={clsx(styles.boxItems)}>
             <Col>

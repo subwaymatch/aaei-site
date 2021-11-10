@@ -14,7 +14,7 @@ const _lectureComponents = [
   {
     label: "Introduction to Data Analytics",
     href: "/notes/intro-to-analytics",
-    multipleChoiceIds: [2],
+    multipleChoiceIds: [2, 3, 4],
     pythonChallengeIds: [],
   },
   {

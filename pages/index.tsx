@@ -35,19 +35,24 @@ const _lectureComponents = [
     multipleChoiceIds: [18, 19, 20],
     pythonChallengeIds: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
   },
-];
-
-const _quizComponents = [
   {
-    label: "Quiz 1",
-    href: "/",
-    multipleChoiceIds: [2],
+    label: "Collections",
+    href: "/notes/collections",
+    multipleChoiceIds: [21, 22, 23, 25, 26],
+    pythonChallengeIds: [
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+    ],
+  },
+  {
+    label: "Loops",
+    href: "/notes/loops",
+    multipleChoiceIds: [],
     pythonChallengeIds: [],
   },
   {
-    label: "Quiz 2",
-    href: "/",
-    multipleChoiceIds: [2],
+    label: "Functions",
+    href: "/notes/functions",
+    multipleChoiceIds: [],
     pythonChallengeIds: [],
   },
 ];
@@ -63,13 +68,9 @@ interface IModuleComponent {
 interface IMainPageProps {
   user: User;
   lectureComponents: Array<IModuleComponent>;
-  quizComponents: Array<IModuleComponent>;
 }
 
-export default function MainPage({
-  lectureComponents,
-  quizComponents,
-}: IMainPageProps) {
+export default function MainPage({ lectureComponents }: IMainPageProps) {
   return (
     <Layout>
       <main className={styles.mainPage}>
@@ -164,12 +165,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     } else {
       (o as IModuleComponent).progress = 0;
     }
-
-    return o;
-  });
-
-  sspObj.props["quizComponents"] = _quizComponents.map((o) => {
-    (o as IModuleComponent).progress = 44;
 
     return o;
   });

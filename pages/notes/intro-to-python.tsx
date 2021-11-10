@@ -2,7 +2,6 @@ import Layout from "components/Layout";
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "styles/pages/notes/common.module.scss";
 import Image from "next/image";
-import clsx from "clsx";
 import ListWithTitle from "components/common/ListWithTitle";
 import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleChoiceQuestion";
 import CenteredColumn from "components/common/CenteredColumn";

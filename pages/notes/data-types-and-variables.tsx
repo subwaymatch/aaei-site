@@ -42,37 +42,35 @@ export default function VariablesAndDataTypesPage() {
           </Row>
 
           <CenteredColumn className={styles.textBox}>
-            <div className={styles.textBox}>
-              <h3>Python Data Types</h3>
+            <h3>Python Data Types</h3>
 
-              <span className="label blue">What is a data type?</span>
-              <p>
-                A data type denotes the category of a value. In Python, ALL
-                values have <em>data type</em>s. We'll go over a few{" "}
-                <strong>built-in</strong> types. Built-in types are pre-defined
-                data types that are part of the Python programming language
-                itself.
-              </p>
+            <span className="label blue">What is a data type?</span>
+            <p>
+              A data type denotes the category of a value. In Python, ALL values
+              have <em>data type</em>s. We'll go over a few{" "}
+              <strong>built-in</strong> types. Built-in types are pre-defined
+              data types that are part of the Python programming language
+              itself.
+            </p>
 
-              <ul>
-                <li>
-                  Text <code>"Hello World"</code> is a string type (
-                  <code>str</code>).
-                </li>
-                <li>
-                  Number <code>475</code> is an integer type (<code>int</code>
-                  ).
-                </li>
-                <li>
-                  Number <code>1.99</code> is a float type (<code>float</code>
-                  ).
-                </li>
-                <li>
-                  Logical <code>True</code> is a boolean type (<code>bool</code>
-                  ).
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                Text <code>"Hello World"</code> is a string type (
+                <code>str</code>).
+              </li>
+              <li>
+                Number <code>475</code> is an integer type (<code>int</code>
+                ).
+              </li>
+              <li>
+                Number <code>1.99</code> is a float type (<code>float</code>
+                ).
+              </li>
+              <li>
+                Logical <code>True</code> is a boolean type (<code>bool</code>
+                ).
+              </li>
+            </ul>
           </CenteredColumn>
 
           <RecordedMultipleChoiceQuestion
@@ -171,6 +169,28 @@ export default function VariablesAndDataTypesPage() {
               <p>
                 A variable is a nickname for a stored value that can{" "}
                 <em>change</em>.
+              </p>
+
+              <span className="label blue">Why do we use variables?</span>
+              <p>
+                If you have a constantly-changing value that is used in many
+                different places of a computer program, you will likely run into
+                a maintenance issue as you have to manually update those values
+                every time the value changes. If you create a variable and
+                reference that variable instead, you only have to update that
+                variable instead of having to update every occurrence.
+              </p>
+
+              <p>
+                Variables also increase the readability if properly used. Assume
+                that you are calculating the after-tax price (at a tax rate of
+                10%) of an item that is 2 dollars. In Python code, the
+                calculation of the after-tax price can be written as{" "}
+                <code>2 * 1.10</code>. Although you may understand what the
+                numbers in <code>2 * 1.10</code> mean, but other people may have
+                a difficult time understanding it. Rewriting it to{" "}
+                <code>before_tax_price * (1 + tax_rate)</code> improves the
+                readability of your code.
               </p>
 
               <span className="label blue">Creating a Variable</span>

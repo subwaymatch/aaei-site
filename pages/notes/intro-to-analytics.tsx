@@ -117,13 +117,13 @@ export default function VariablesAndDataTypesPage() {
             <Col>
               <h2 className="sectionTitle">
                 Steps in working with data
-                <span className="accent orange" />
+                <span className="accent blue" />
               </h2>
 
               <Row>
                 <Col md={4}>
                   <div className={styles.item}>
-                    <span className="label orange">Collect</span>
+                    <span className="label blue">Collect</span>
 
                     <p>
                       Finding or gathering data is the starting point of any
@@ -136,7 +136,7 @@ export default function VariablesAndDataTypesPage() {
                 </Col>
                 <Col md={4}>
                   <div className={styles.item}>
-                    <span className="label orange">Analyze</span>
+                    <span className="label blue">Analyze</span>
 
                     <p>
                       This step involves a repetitive process of loading,
@@ -148,7 +148,7 @@ export default function VariablesAndDataTypesPage() {
                 </Col>
                 <Col md={4}>
                   <div className={styles.item}>
-                    <span className="label orange">Communicate</span>
+                    <span className="label blue">Communicate</span>
 
                     <p>
                       This step is often referred as a "storytelling" phase. You

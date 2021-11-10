@@ -4,6 +4,7 @@
 
 .mainPage {
   margin-top: 2rem;
+  padding-bottom: 10rem;
 
   @include media-breakpoint-down(lg) {
     margin-top: 1rem;

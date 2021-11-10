@@ -25,7 +25,7 @@ const menuItems = [
     isActive: (asPath: string) => asPath.startsWith("/modules"),
   },
   {
-    href: "/assignments",
+    href: "https://canvas.illinois.edu/courses/827",
     label: (
       <>
         <span>Canvas</span>

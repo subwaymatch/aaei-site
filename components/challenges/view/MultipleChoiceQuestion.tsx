@@ -45,15 +45,6 @@ export default function MultipleChoiceQuestion({
         .includes(id)
     );
 
-  console.log("=============");
-  console.log(`isLoading=${isLoading}`);
-  console.log(`isUserCorrect=${isUserCorrect}`);
-  console.log(`isSubmitting=${isSubmitting}`);
-
-  console.log(
-    !showResult && userSelections.length !== questionData?.num_correct_options
-  );
-
   const submit = async () => {
     setIsSubmitting(true);
 
@@ -80,6 +71,22 @@ export default function MultipleChoiceQuestion({
     onReset();
 
     setUserSelections([]);
+  };
+
+  const getSubmitButtonTooltipMessage = (): string | null => {
+    if (showResult) {
+      if (!isUserCorrect) {
+        return `Nice try, but try again! 🧐`;
+      } else {
+        return `Great work! 👊`;
+      }
+    } else if (userSelections.length !== questionData?.num_correct_options) {
+      return `Select ${
+        questionData?.num_correct_options - userSelections.length
+      } more`;
+    } else {
+      return `Click to submit`;
+    }
   };
 
   const getSubmitButtonIconComponent = (): IconType | null => {
@@ -166,14 +173,7 @@ export default function MultipleChoiceQuestion({
             <div className={styles.controls}>
               <Button
                 onClick={showResult ? reset : submit}
-                tooltip={
-                  userSelections.length !== questionData?.num_correct_options
-                    ? `Select ${
-                        questionData?.num_correct_options -
-                        userSelections.length
-                      } more`
-                    : `Submit`
-                }
+                tooltip={getSubmitButtonTooltipMessage()}
                 disabled={
                   isLoading ||
                   (!showResult &&

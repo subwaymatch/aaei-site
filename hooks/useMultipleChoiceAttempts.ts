@@ -4,7 +4,7 @@ import { supabaseClient } from "lib/supabase/supabaseClient";
 import { definitions } from "types/database";
 import orderBy from "lodash/orderBy";
 
-export default function useMultipleChoiceAttempts(challengeId: number) {
+export default function useMultipleChoiceAttempts(questionId: number) {
   const { user } = useSupabaseAuth();
 
   const [attempts, setAttempts] = useState<
@@ -12,7 +12,7 @@ export default function useMultipleChoiceAttempts(challengeId: number) {
   >([]);
 
   const updateAttempts = async () => {
-    if (!user || !challengeId) {
+    if (!user || !questionId) {
       return;
     }
 
@@ -21,7 +21,7 @@ export default function useMultipleChoiceAttempts(challengeId: number) {
       .select()
       .match({
         user_id: user.id,
-        question_id: challengeId,
+        question_id: questionId,
       })
       .order("submitted_at", { ascending: false })
       .limit(100);
@@ -34,27 +34,35 @@ export default function useMultipleChoiceAttempts(challengeId: number) {
   };
 
   useEffect(() => {
-    if (!user || !challengeId) {
+    if (!user || !questionId) {
       setAttempts([]);
       return;
     }
 
+    console.log(`useEffect, user=${user?.id}, questionId=${questionId}`);
+
     updateAttempts();
 
+    console.log(`new attempt subscription`);
+
     const newAttemptSubscription = supabaseClient
-      .from<definitions["multiple_choice_attempts"]>(
-        `coding_challenge_attempts:user_id=eq.${user.id}`
-      )
+      .from<definitions["multiple_choice_attempts"]>("multiple_choice_attempts")
       .on("INSERT", async (payload) => {
         const newData = payload.new;
 
-        if (newData.question_id === challengeId) {
+        console.log(`INSERT, new payload`);
+        console.log(newData);
+
+        if (newData.question_id === questionId && newData.user_id === user.id) {
           setAttempts((previousAttempts) => {
             const updatedAttempts = orderBy(
               [newData, ...previousAttempts],
               ["submitted_at"],
               ["desc"]
             );
+
+            console.log(`updatedAttempts`);
+            console.log(updatedAttempts);
 
             return updatedAttempts;
           });
@@ -65,7 +73,7 @@ export default function useMultipleChoiceAttempts(challengeId: number) {
     return () => {
       supabaseClient.removeSubscription(newAttemptSubscription);
     };
-  }, [user, challengeId]);
+  }, [user, questionId]);
 
   return { attempts };
 }

@@ -35,7 +35,7 @@ export default function Button({
       placement="bottom"
       offset={[0, -4]}
       theme="light"
-      disabled={!tooltip || disabled || isMobile}
+      disabled={!tooltip || isMobile}
     >
       <div
         className={clsx(styles.button, {

@@ -23,6 +23,12 @@ const _lectureComponents = [
     multipleChoiceIds: [5, 6, 7],
     pythonChallengeIds: [1],
   },
+  {
+    label: "Data Types and Variables",
+    href: "/notes/data-types-and-variables",
+    multipleChoiceIds: [8, 9, 11, 13, 14, 15, 16, 17],
+    pythonChallengeIds: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+  },
 ];
 
 const _quizComponents = [

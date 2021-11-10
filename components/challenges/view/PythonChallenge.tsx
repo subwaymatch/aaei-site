@@ -257,7 +257,7 @@ export default function PythonChallenge({
                           <span className="color-blue"> + </span>
                           <kbd>Enter ↵</kbd> */}
                           Run your code{" "}
-                          <strong className="color-pink">without</strong>{" "}
+                          <strong className="color-blue">without</strong>{" "}
                           submitting
                         </>
                       ) : (
@@ -283,7 +283,7 @@ export default function PythonChallenge({
                           <span className="color-blue"> + </span>
                           <kbd>Enter ↵</kbd> */}
                           Submit your code{" "}
-                          <strong className="color-purple">and</strong> check
+                          <strong className="color-blue">and</strong> check
                           correctness
                         </>
                       ) : (

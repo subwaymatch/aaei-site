@@ -91,6 +91,14 @@
   .textBox {
     margin-top: 6rem;
 
+    h3 {
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      margin-top: 4rem;
+    }
+
     :global(.label) {
       &:first-of-type {
         margin-top: 2rem;

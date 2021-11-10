@@ -13,3 +13,15 @@
     margin-top: 0.5rem;
   }
 }
+
+.components {
+  margin-top: 4rem;
+
+  @include media-breakpoint-down(lg) {
+    margin-top: 3rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin-top: 2rem;
+  }
+}

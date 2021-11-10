@@ -39,19 +39,12 @@ export default function useMultipleChoiceAttempts(questionId: number) {
       return;
     }
 
-    console.log(`useEffect, user=${user?.id}, questionId=${questionId}`);
-
     updateAttempts();
-
-    console.log(`new attempt subscription`);
 
     const newAttemptSubscription = supabaseClient
       .from<definitions["multiple_choice_attempts"]>("multiple_choice_attempts")
       .on("INSERT", async (payload) => {
         const newData = payload.new;
-
-        console.log(`INSERT, new payload`);
-        console.log(newData);
 
         if (newData.question_id === questionId && newData.user_id === user.id) {
           setAttempts((previousAttempts) => {
@@ -60,9 +53,6 @@ export default function useMultipleChoiceAttempts(questionId: number) {
               ["submitted_at"],
               ["desc"]
             );
-
-            console.log(`updatedAttempts`);
-            console.log(updatedAttempts);
 
             return updatedAttempts;
           });

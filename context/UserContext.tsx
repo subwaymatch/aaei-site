@@ -43,8 +43,6 @@ export const UserContextProvider = (props) => {
         .eq("id", newUser.id)
         .single();
 
-      console.log(selectResult);
-
       if (selectResult?.data && selectResult.data.roles) {
         setRoles(selectResult.data.roles);
       }

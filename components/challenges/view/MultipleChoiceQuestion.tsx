@@ -5,7 +5,6 @@ import { RiUploadLine } from "react-icons/ri";
 import { IoRefresh, IoCheckmark } from "react-icons/io5";
 import styles from "./MultipleChoiceQuestion.module.scss";
 import { definitions } from "types/database";
-import useSupabaseAuth from "hooks/useSupabaseAuth";
 import InstructionText from "./InstructionText";
 import MultipleChoiceOption from "./MultipleChoiceOption";
 import { QueryStatusEnum } from "types";
@@ -31,7 +30,6 @@ export default function MultipleChoiceQuestion({
   onSubmit,
   onReset,
 }: IMultipleChoiceQuestionProps) {
-  const { user } = useSupabaseAuth();
   const [userSelections, setUserSelections] = useState<number[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const isLoading = status === QueryStatusEnum.LOADING;

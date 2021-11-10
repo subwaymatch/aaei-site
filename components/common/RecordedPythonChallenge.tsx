@@ -170,7 +170,7 @@ export default function RecordedPythonChallenge({
 
           <PythonChallenge
             challengeData={data}
-            localStorageKey={`coding-question-${challengeId}`}
+            localStorageKey={`aaei-coding-challenge-${challengeId}`}
             showSolution={showSolution}
             onSubmit={recordSubmission}
           />

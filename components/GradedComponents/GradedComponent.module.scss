@@ -1,17 +1,29 @@
 @import "styles/mixins";
 
 .gradedComponent {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(1px);
+    transition: all 0.2s ease;
+  }
+
   .labelWrapper,
   .progressWrapper {
     color: var(--arches-blue-700);
     font-size: 1.2rem;
-    padding: 0.6rem 0;
+    padding: 0.8rem 0;
     border-top: 1px solid var(--arches-blue-300);
   }
 
   @include media-breakpoint-down(md) {
+    .labelWrapper {
+      padding-bottom: 0.25rem;
+    }
+
     .progressWrapper {
       border-top: none;
+      padding-top: 0.25rem;
     }
   }
 }

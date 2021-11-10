@@ -6,6 +6,7 @@ import clsx from "clsx";
 import ListWithTitle from "components/common/ListWithTitle";
 import RecordedMultipleChoiceQuestion from "components/common/RecordedMultipleChoiceQuestion";
 import CenteredColumn from "components/common/CenteredColumn";
+import RecordedPythonChallenge from "components/common/RecordedPythonChallenge";
 
 export default function VariablesAndDataTypesPage() {
   return (
@@ -118,6 +119,8 @@ export default function VariablesAndDataTypesPage() {
             questionId={7}
             className={styles.block}
           />
+
+          <RecordedPythonChallenge challengeId={1} className={styles.block} />
 
           <CenteredColumn className={styles.textBox}>
             <h3>References</h3>

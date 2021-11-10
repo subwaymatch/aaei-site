@@ -254,6 +254,11 @@ strong {
     background-color: $color-pink;
   }
 
+  &.red {
+    color: white;
+    background-color: $color-red;
+  }
+
   &.blue {
     color: white;
     background-color: $color-arches-blue-700;

@@ -21,7 +21,7 @@ const _lectureComponents = [
     label: "Introduction to Python",
     href: "/notes/intro-to-python",
     multipleChoiceIds: [5, 6, 7],
-    pythonChallengeIds: [],
+    pythonChallengeIds: [1],
   },
 ];
 

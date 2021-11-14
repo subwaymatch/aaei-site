@@ -83,7 +83,7 @@ export default function MultipleChoiceQuestion({
         questionData?.num_correct_options - userSelections.length
       } more`;
     } else {
-      return `Click to submit`;
+      return null;
     }
   };
 
@@ -95,7 +95,7 @@ export default function MultipleChoiceQuestion({
     } else if (showResult && !isUserCorrect) {
       return IoRefresh;
     } else {
-      return RiUploadLine;
+      return null;
     }
   };
 
@@ -172,6 +172,7 @@ export default function MultipleChoiceQuestion({
               <Button
                 onClick={showResult ? reset : submit}
                 tooltip={getSubmitButtonTooltipMessage()}
+                loading={isLoading || isSubmitting}
                 disabled={
                   isLoading ||
                   (!showResult &&

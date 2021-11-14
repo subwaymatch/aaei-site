@@ -9,6 +9,9 @@ import SectionTitle from "components/common/SectionTitle";
 import { User } from "@supabase/supabase-js";
 import { supabaseClient } from "lib/supabase/supabaseClient";
 import { definitions } from "types/database";
+import useSupabaseAuth from "hooks/useSupabaseAuth";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const _lectureComponents = [
   {
@@ -71,6 +74,15 @@ interface IMainPageProps {
 }
 
 export default function MainPage({ lectureComponents }: IMainPageProps) {
+  const { user } = useSupabaseAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
+
   return (
     <Layout>
       <main className={styles.mainPage}>

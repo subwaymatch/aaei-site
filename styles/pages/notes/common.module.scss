@@ -133,6 +133,10 @@
         margin-top: 0.5rem;
       }
 
+      :global(.label) + p {
+        margin-top: 1rem;
+      }
+
       @include media-breakpoint-down(sm) {
         padding: 2rem 0;
       }

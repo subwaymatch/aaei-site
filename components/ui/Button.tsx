@@ -4,11 +4,13 @@ import { IconType } from "react-icons";
 import { isMobile } from "react-device-detect";
 import styles from "./Button.module.scss";
 import { ColorTheme } from "types/color-theme";
+import { CircularProgress } from "@material-ui/core";
 
 export interface IButtonProps {
   className?: string;
   tooltip?: React.ReactNode;
   label: string;
+  loading?: boolean;
   disabled?: boolean;
   onClick: () => void;
   IconComponent?: IconType;
@@ -20,6 +22,7 @@ export default function Button({
   className,
   tooltip,
   label,
+  loading,
   disabled,
   onClick,
   IconComponent,
@@ -56,7 +59,13 @@ export default function Button({
           onClick();
         }}
       >
-        {IconComponent && (
+        {loading && (
+          <div style={{ marginRight: "0.2rem" }}>
+            <CircularProgress color="inherit" size={16} />
+          </div>
+        )}
+
+        {IconComponent && !loading && (
           <div className={styles.iconWrapper}>
             <IconComponent className={styles.reactIcon} />
           </div>

@@ -7,12 +7,12 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-size: 1rem;
   letter-spacing: 0;
   color: $color-dark-gray;
   background-color: $color-border-gray;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   padding: 1.2rem 1.5rem;
 
   &.fullWidth {
@@ -48,6 +48,10 @@
 
   &.green:not(.disabled) {
     background-color: $color-green;
+
+    &:hover {
+      background-color: color.adjust($color-green, $lightness: 4%);
+    }
   }
 
   &.purple:not(.disabled) {
@@ -81,5 +85,9 @@
   &.black:not(.disabled) {
     color: white;
     background-color: black;
+
+    &:hover {
+      background-color: color.adjust($color-black, $lightness: 12%);
+    }
   }
 }

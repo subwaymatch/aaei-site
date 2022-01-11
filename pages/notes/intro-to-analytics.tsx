@@ -85,11 +85,11 @@ export default function IntroToAnalyticsNotePage() {
             <ol>
               <li>
                 <strong>Descriptive Analytics</strong>: Analyze historical and
-                current data to describe what happend (or is happening)
+                current data to describe what happened (or is happening)
               </li>
               <li>
                 <strong>Diagnostic Analytics</strong>: Use data to understand{" "}
-                <em>why</em> something happend in the past
+                <em>why</em> something happened in the past
               </li>
               <li>
                 <strong>Predictive Analytics</strong>: Predicts what is likely

@@ -107,9 +107,17 @@ export default function MainPage({ lectureComponents }: IMainPageProps) {
                 ))}
 
                 <GradedComponent
-                  label="Pandas Guided Case Study"
-                  href="https://nbviewer.org/github/subwaymatch/AAEI-notebooks/blob/main/AAEI-rideshare-vehicles-SOLUTION.ipynb"
-                  progress={0}
+                  label="Introduction to Jupyter Notebooks and Pandas"
+                  href="https://canvas.illinois.edu/courses/827/assignments/375020"
+                  showProgress={false}
+                  progressMessage="External Link ⟶"
+                />
+
+                <GradedComponent
+                  label="Starbucks App Data"
+                  href="https://canvas.illinois.edu/courses/827/assignments/423696"
+                  showProgress={false}
+                  progressMessage="External Link ⟶"
                 />
               </div>
             </Col>

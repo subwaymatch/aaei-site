@@ -7,10 +7,18 @@ import clsx from "clsx";
 interface IGradedComponentProps {
   label: string;
   href: string;
-  progress: number;
+  showProgress?: boolean;
+  progress?: number;
+  progressMessage?: string;
 }
 
-const GradedComponent = ({ label, href, progress }: IGradedComponentProps) => {
+const GradedComponent = ({
+  label,
+  href,
+  progress,
+  showProgress = true,
+  progressMessage,
+}: IGradedComponentProps) => {
   return (
     <Link href={href}>
       <div className={styles.gradedComponent}>
@@ -25,12 +33,17 @@ const GradedComponent = ({ label, href, progress }: IGradedComponentProps) => {
             <div className={styles.progressWrapper}>
               <Row className="align-items-center">
                 <Col>
-                  <div className={styles.status}>{progress}%</div>
+                  {showProgress ? (
+                    <div className={styles.status}>{progress}%</div>
+                  ) : (
+                    <div className={styles.status}>N/A</div>
+                  )}
                 </Col>
 
                 <Col>
                   <div className={styles.progressBarWrapper}>
-                    <ProgressBar progress={progress} />
+                    {showProgress && <ProgressBar progress={progress} />}
+                    {progressMessage && <p>{progressMessage}</p>}
                   </div>
                 </Col>
               </Row>

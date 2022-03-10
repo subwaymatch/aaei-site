@@ -54,21 +54,22 @@ export default function MainPage({ modules }: IMainPageProps) {
                 {modules.map((o) => (
                   <GradedComponent
                     key={o.slug}
-                    label={o.title}
+                    title={o.title}
+                    slug={o.slug}
                     href={`/notes/${o.slug}`}
                     progress={o.progress}
                   />
                 ))}
 
                 <GradedComponent
-                  label="Introduction to Jupyter Notebooks and Pandas"
+                  title="Introduction to Jupyter Notebooks and Pandas"
                   href="https://canvas.illinois.edu/courses/827/assignments/375020"
                   showProgress={false}
                   progressMessage="External Link ⟶"
                 />
 
                 <GradedComponent
-                  label="Starbucks App Data"
+                  title="Starbucks App Data"
                   href="https://canvas.illinois.edu/courses/827/assignments/423696"
                   showProgress={false}
                   progressMessage="External Link ⟶"

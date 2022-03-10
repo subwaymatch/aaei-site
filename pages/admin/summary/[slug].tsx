@@ -6,13 +6,13 @@ import {
   ChallengeTypeEnum,
   IChallengeResultSummary,
   IChallengeTypeAndId,
-} from "types/challenges";
+} from "types/challenge";
 import { useEffect, useState } from "react";
 import saveAs from "file-saver";
 import dayjs from "dayjs";
-import { Box, Button, ButtonGroup, Modal } from "@mui/material";
+import { Box, Button, ButtonGroup } from "@mui/material";
 import Link from "next/link";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ListIcon from "@mui/icons-material/List";
 import DownloadIcon from "@mui/icons-material/Download";
 import { VscEye } from "react-icons/vsc";
 import ChallengeResultsModal from "components/challenges/view/ChallengeResultsModal";
@@ -116,13 +116,13 @@ export default function ChallengeResultsSummary({
                     }}
                   >
                     <ButtonGroup>
-                      <Link href={`/notes/${slug}`}>
+                      <Link href={`/`}>
                         <Button
                           size="large"
                           disableElevation
-                          startIcon={<ArrowBackIcon />}
+                          startIcon={<ListIcon />}
                         >
-                          Back to {lectureComponent.title}
+                          List of Modules
                         </Button>
                       </Link>
 

@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import useChallengeResults from "hooks/useChallengeResults";
+import { IChallengeTypeAndId } from "types/challenge";
 import dayjs from "dayjs";
 import { CircularProgress } from "@mui/material";
 import { getChallengeTypeDisplayName } from "utils/challenge";
@@ -12,7 +14,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { IChallengeResult } from "types/challenges";
 
 const modalBoxStyle = {
   position: "absolute",
@@ -39,7 +40,7 @@ export default function ChallengeResultsModal({
   isOpen,
   handleClose,
 }: IChallengeResultsModalProps) {
-  const challengeResults: IChallengeResult[] = [];
+  const { data: challengeResults } = useChallengeResults(challenges, userId);
 
   return (
     <div>

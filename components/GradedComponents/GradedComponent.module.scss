@@ -1,11 +1,12 @@
 @import "styles/mixins";
 
 .gradedComponent {
-  cursor: pointer;
+  a {
+    color: var(--arches-blue-700);
 
-  &:hover {
-    transform: translateY(1px);
-    transition: all 0.2s ease;
+    &:hover {
+      color: var(--arches-blue-900);
+    }
   }
 
   .labelWrapper,
@@ -14,6 +15,48 @@
     font-size: 1.2rem;
     padding: 0.8rem 0;
     border-top: 1px solid var(--arches-blue-300);
+  }
+
+  .labelWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .adminSummaryLink {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      letter-spacing: -0.01rem;
+      line-height: 1.2;
+      color: var(--arches-blue-500);
+      background-color: var(--arches-blue-200);
+      padding: 0.4rem 0.8rem;
+      border-radius: 10rem;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+
+      .reactIcon {
+        margin-left: 0.5rem;
+      }
+
+      @include media-breakpoint-down(lg) {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+      }
+
+      @include media-breakpoint-only(md) {
+        .reactIcon {
+          display: none;
+        }
+      }
+
+      &:hover {
+        transform: translateY(2px);
+        color: var(--arches-blue-700);
+        background-color: var(--arches-blue-300);
+      }
+    }
   }
 
   @include media-breakpoint-down(md) {

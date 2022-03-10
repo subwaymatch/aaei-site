@@ -466,3 +466,52 @@ ul.pagination {
 .math.math-display {
   letter-spacing: 0;
 }
+
+table {
+  color: $color-gray-700;
+  width: 100%;
+  font-size: 0.9em;
+  font-weight: 400;
+  text-align: right;
+
+  thead {
+    tr {
+      border-bottom: 1px solid $color-gray-400;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $color-border-gray;
+    }
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  th,
+  td {
+    padding: 0.25rem 0;
+    text-align: center;
+  }
+
+  &.left {
+    th,
+    td {
+      text-align: left;
+    }
+  }
+
+  tr {
+    th:first-of-type,
+    td:first-of-type {
+      text-align: left;
+    }
+
+    th:last-of-type,
+    td:last-of-type {
+      text-align: right;
+    }
+  }
+}

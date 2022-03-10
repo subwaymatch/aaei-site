@@ -7,6 +7,8 @@ import "styles/hljs.custom.scss";
 import "react-toastify/dist/ReactToastify.css";
 import "styles/toastify.custom.scss";
 import PythonRuntimeProvider from "lib/pyodide/PythonRuntimeProvider";
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
+import muiTheme from "lib/mui/muiTheme";
 import { UserContextProvider } from "context/UserContext";
 import { supabaseClient } from "lib/supabase/supabaseClient";
 
@@ -14,19 +16,21 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <UserContextProvider supabaseClient={supabaseClient}>
       <PythonRuntimeProvider>
-        <ToastContainer
-          position="top-center"
-          theme="colored"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <Component {...pageProps} />
+        <MuiThemeProvider theme={muiTheme}>
+          <ToastContainer
+            position="top-center"
+            theme="colored"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          <Component {...pageProps} />
+        </MuiThemeProvider>
       </PythonRuntimeProvider>
     </UserContextProvider>
   );

@@ -63,14 +63,14 @@ export default function MainPage({ modules }: IMainPageProps) {
 
                 <GradedComponent
                   title="Introduction to Jupyter Notebooks and Pandas"
-                  href="https://canvas.illinois.edu/courses/827/assignments/375020"
+                  href="https://canvas.illinois.edu/courses/24282/assignments/565047"
                   showProgress={false}
                   progressMessage="External Link ⟶"
                 />
 
                 <GradedComponent
                   title="Starbucks App Data"
-                  href="https://canvas.illinois.edu/courses/827/assignments/423696"
+                  href="https://canvas.illinois.edu/courses/24282/assignments/565048"
                   showProgress={false}
                   progressMessage="External Link ⟶"
                 />
